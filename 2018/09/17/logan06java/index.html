@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/wq.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tree2.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,基础知识,编程语言," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Logan's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本文包括Java基础的一些问题，由网上的资料整理所得。内容多，不定时整理更新。">
+<meta name="keywords" content="Java,基础知识,编程语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础知识(一):Java部分">
+<meta property="og:url" content="http://loganwz.com/2018/09/17/logan06java/index.html">
+<meta property="og:site_name" content="Logan&#39;s Blog">
+<meta property="og:description" content="本文包括Java基础的一些问题，由网上的资料整理所得。内容多，不定时整理更新。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.imgur.com/zVjNHOm.png">
+<meta property="og:updated_time" content="2018-12-31T09:00:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基础知识(一):Java部分">
+<meta name="twitter:description" content="本文包括Java基础的一些问题，由网上的资料整理所得。内容多，不定时整理更新。">
+<meta name="twitter:image" content="https://i.imgur.com/zVjNHOm.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://loganwz.com/2018/09/17/logan06java/"/>
+
+
+
+
+
+  <title>基础知识(一):Java部分 | Logan's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<!-- 点击大爆炸效果
+ 
+-->
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Logan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Life is too short to be ordinary</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://loganwz.com/2018/09/17/logan06java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="logan_wz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/i.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Logan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基础知识(一):Java部分</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-17T20:09:00+08:00">
+                2018-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读数<i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3,589
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> 本文包括Java基础的一些问题，由网上的资料整理所得。内容多，不定时整理更新。<br><a id="more"></a></p>
+<h1 id="Java基础部分"><a href="#Java基础部分" class="headerlink" title="Java基础部分"></a>Java基础部分</h1><h2 id="Java跨平台原理"><a href="#Java跨平台原理" class="headerlink" title="Java跨平台原理"></a>Java跨平台原理</h2><p>因为<code>JVM（java虚拟机）</code>能够跨平台安装，不同系统、不同版本、不同位数的JVM帮助开发者屏蔽了操作系统的不同，使得相应的字节码可以在任何平台上运行。</p>
+<h2 id="Java中的基本数据类型"><a href="#Java中的基本数据类型" class="headerlink" title="Java中的基本数据类型"></a>Java中的基本数据类型</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">位数</th>
+<th style="text-align:center">范围</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte(字节)</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-128~127</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">short(短整型)</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">-32768~32768</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">int(整型)</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">-21亿~21亿</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">long(长整型)</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">-2^63~2^63-1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">float(浮点型)</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">0.0f</td>
+</tr>
+<tr>
+<td style="text-align:center">double(双精度)</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">0.0d</td>
+</tr>
+<tr>
+<td style="text-align:center">char(字符型)</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">\u0000~\uffff</td>
+<td style="text-align:center">\u0000</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean(布尔型)</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">true/false</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>byte-&gt;short(char)-&gt;int-&gt;long-&gt;float-&gt;double</code><br>从小到大自动类型转换<br>从大到小需要强制类型转换，可以会丢失精度</p>
+</blockquote>
+<h2 id="包装数据类型"><a href="#包装数据类型" class="headerlink" title="包装数据类型"></a>包装数据类型</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">基本数据类型</th>
+<th style="text-align:center">包装数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">Integer</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">Character</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">Double</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">Long</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">Short</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">Boolean</td>
+</tr>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">Byte</td>
+</tr>
+</tbody>
+</table>
+<p>基本数据类型和包装数据类型之间可以通过<code>装箱（把基本的数据类型转换成对应的包装类型）</code>和<code>拆箱（把包装类型转换为基本数据类型）</code>相互转换。<br>Java是面向对象的语言，基本数据类型不具备面向对象的特性。</p>
+<h2 id="String和StringBuffer、StringBuilder的区别"><a href="#String和StringBuffer、StringBuilder的区别" class="headerlink" title="String和StringBuffer、StringBuilder的区别"></a>String和StringBuffer、StringBuilder的区别</h2><p><code>String</code>是内容不可变的字符串</p>
+<blockquote>
+<p>String底层使用了一个不可变的字符串数组<code>final char[]</code>,因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响。</p>
+</blockquote>
+<p><code>StringBuilder(线程不安全) StringBuffer(线程安全)</code>是内容可以改变的字符串</p>
+<blockquote>
+<p>StringBuilder StringBuffer底层使用的是可变的字符数组（没有用final修饰），每次结果都会对 StringBuffer 对象本身进行操作，而不是生成新的对象，再改变对象引用。一般情况下推荐使用 StringBuffer ，特别是字符串对象经常改变的情况下。</p>
+</blockquote>
+<p><strong>三者的区别：</strong><br>拼接字符串时：<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//String进行拼接：</span></span><br><span class="line"><span class="keyword">String</span> c = <span class="string">"a"</span> + <span class="string">"b"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//StringBuffer或StringBuilder拼接时：</span></span><br><span class="line">StringBuilder c = <span class="built_in">new</span> StringBuilder();</span><br><span class="line">c.<span class="built_in">append</span>(<span class="string">"a"</span>).<span class="built_in">append</span>(<span class="string">"b"</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>三者效率：</strong><br><code>StringBuilder&gt;StringBuffer&gt;String</code></p>
+<blockquote>
+<p> <code>Java.lang.StringBuffer</code>线程安全的可变字符序列。一个类似于 String 的字符串缓冲区，但不能修改。虽然在任意时间点上它都包含某种特定的字符序列，但通过某些方法调用可以改变该序列的长度和内容。<br> 可将字符串缓冲区安全地用于多个线程。可以在必要时对这些方法进行同步，因此任意特定实例上的所有操作就好像是以串行顺序发生的，该顺序与所涉及的每个线程进行的方法调用顺序一致。<br> StringBuffer 上的主要操作是 append 和 insert 方法，可重载这些方法，以接受任意类型的数据。每个方法都能有效地将给定的数据转换成字符串，然后将该字符串的字符追加或插入到字符串缓冲区中。append 方法始终将这些字符添加到缓冲区的末端；而 insert 方法则在指定的点添加字符。<br> 例如，如果 z 引用一个当前内容是“start”的字符串缓冲区对象，则此方法调用 z.append(“le”) 会使字符串缓冲区包含“startle”，而 z.insert(4, “le”) 将更改字符串缓冲区，使之包含“starlet”。<br> <code>java.lang.StringBuilder</code>一个可变的字符序列是5.0新增的。此类提供一个与 StringBuffer 兼容的 API，但不保证同步。该类被设计用作 StringBuffer 的一个简易替换，用在字符串缓冲区被单个线程使用的时候（这种情况很普遍）。如果可能，建议优先采用该类，因为在大多数实现中，它比 StringBuffer 要快。两者的方法基本相同。</p>
+</blockquote>
+<h2 id="Java中的集合"><a href="#Java中的集合" class="headerlink" title="Java中的集合"></a>Java中的集合</h2><p><img src="https://i.imgur.com/zVjNHOm.png" alt=""><br>Java中的集合分为：Conllection和Map（即value，key-value）两种</p>
+<h3 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h3><blockquote>
+<p>Collection接口是集合类的跟接口，Java中没有提供这个接口的直接的实现类。但是却让其被继承产生了两个接口，就是<code>Set</code>和<code>List</code>。</p>
+</blockquote>
+<p><strong>List是有序的，可以重复。</strong><br>  List中常用的ArrayList和LinkedList的区别和使用场景：</p>
+<ul>
+<li>ArrayList底层使用的是<code>数组</code>，数据查询特定元素比较快，而插入、删除和修改比较慢（数组在内存中是一块连续的内存，插入、删除需要移动内存）</li>
+<li>LinkedList使用的是<code>链表</code>，查询效率低（查询需要从头开始，一个一个地找），而插入、删除的效率高（插入是不需要移动内存，只需要改变引用只想即可）</li>
+</ul>
+<p><strong>Set是无序的，不可以重复。</strong><br>根据equals和hashcode判断，也就是如果一个对象要存储在Set中，必须要重写equals和hashcode方法。</p>
+<h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><h2 id="HashMap哈HashTable的区别-HashTable和ConcurrentHashMap的区别？"><a href="#HashMap哈HashTable的区别-HashTable和ConcurrentHashMap的区别？" class="headerlink" title="HashMap哈HashTable的区别?HashTable和ConcurrentHashMap的区别？"></a>HashMap哈HashTable的区别?HashTable和ConcurrentHashMap的区别？</h2><p>相同点：HashMap和HashTable都可以用来存储Key-value的数据<br>不同点：<br>1.HashMap可以把null作为Key或者value的，而HashTable不可以<br>2.HashMap是线程不安全的，效率较高；而HashTable是线程安全的，效率较低。<br><strong>如果既要线程安全又要效率高？</strong><br>可以通过把整个Map分为N个Segment（类似于HashTable），操作前面的而不影响后面的使用，可以提供相同的线程安全，但是效率提升N倍，默认提升16倍。</p>
+<h2 id="线程的几种实现方式-启动方式？区分方式？"><a href="#线程的几种实现方式-启动方式？区分方式？" class="headerlink" title="线程的几种实现方式?启动方式？区分方式？"></a>线程的几种实现方式?启动方式？区分方式？</h2><p><strong>线程的实现方式</strong><br>1.通过继承Thread类实现一个线程<br>2.通过实现Runnable接口实现一个线程<br>两者区别：Java是单继承的，继承Thread类方式将单继承位置占了。这个时候只能去实现接口，不能再去继承别的类。而实现Runnable接口的方式不影响类的继承。<br><strong>线程的启动方式</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//继承Tread方式</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">	<span class="meta">@override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">			System.out.println(i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	<span class="comment">//继承了Thread的对象</span></span><br><span class="line">	MyThread myThread = <span class="keyword">new</span> MyThread();</span><br><span class="line">	<span class="comment">//不是启动线程，只是调用对象里面的普通的run（）方法</span></span><br><span class="line">	myThread.run();</span><br><span class="line">	<span class="comment">//真正启动一个线程调用start（）方法，执行的就是run方法里面的内容</span></span><br><span class="line">	myThread.start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现Runnable接口方式</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">	<span class="meta">@override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">			System.out.println(i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	<span class="comment">//实现Runnable接口的对象</span></span><br><span class="line">	MyRunnable myRunnable = <span class="keyword">new</span> MyRunnable();</span><br><span class="line">	Thread thread = <span class="keyword">new</span> Thread（myRunnable，<span class="string">"线程名字"</span>）；</span><br><span class="line">	thread.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>线程的区分方式</strong></p>
+<blockquote>
+<p><code>thread.setName(&quot;设置线程的名称&quot;)</code>这是一种规范，在创建线程之后，都需要设置名称。</p>
+</blockquote>
+<h2 id="有没有使用过线程并发库"><a href="#有没有使用过线程并发库" class="headerlink" title="有没有使用过线程并发库?"></a>有没有使用过线程并发库?</h2><blockquote>
+<p>JDK5中增加了Doug Lea的并发库，这一引进给Java线程的管理和使用提供了强大的便利性。 java.util.current包中提供了对线程优化、管理的各项操作，使得线程的使用变得的心应手。该包提供了线程的运行，线程池的创建，线程生命周期的控制.<br>Java通过Executors提供四个静态方法创建四种线程池，分别为：<br>newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。<br>newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。<br>newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行。<br>newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行</p>
+</blockquote>
+<h2 id="线程池的作用"><a href="#线程池的作用" class="headerlink" title="线程池的作用"></a>线程池的作用</h2><p>1.限定线程的个数，不会导致由于线程过多而导致系统运行缓慢或崩溃<br>2.线程池不需要每次都去创建或销毁，节省了资源<br>3.线程池不需要每次都去创建，响应时间更快</p>
+<h2 id="常用的设计模式有哪些？"><a href="#常用的设计模式有哪些？" class="headerlink" title="常用的设计模式有哪些？"></a>常用的设计模式有哪些？</h2><blockquote>
+<p>设计模式是经过前人无数次的实践总结出来的，在设计过程中可以反复使用的、可以解决特定问题的设计方法。</p>
+</blockquote>
+<p><strong>单例模式</strong><br>参考文章：<a href="http://loganwz.com/2018/09/17/logan07Singleton/" title="单例模式（“饱汉式”和“饿汉式”）">单例模式（“饱汉式”和“饿汉式”）</a><br><strong>工厂模式</strong><br>Spring IOC就是使用了工厂模式，对象的创建交给一个工厂去做。<br><strong>代理模式</strong><br>Spring AOP就是使用的动态代理。</p>
+<h1 id="Java-Web部分"><a href="#Java-Web部分" class="headerlink" title="Java Web部分"></a>Java Web部分</h1><h2 id="http中get和post请求的区别？"><a href="#http中get和post请求的区别？" class="headerlink" title="http中get和post请求的区别？"></a>http中get和post请求的区别？</h2><blockquote>
+<p>GET和POST请求都是http的请求方式，用户通过不同的http的请求方式完成对资源（url）的不同操作。GET，POST，PUT，DELETE就对应着对这个资源的查 ，改 ，增 ，删 4个操作,具体点来讲GET一般用于获取/查询资源信息，而POST一般用于更新资源信息</p>
+</blockquote>
+<p><strong>GET</strong><br>1.采用URL请求路径传输参数。参数拼接 在URL后面。<br>2、参数传输过程中隐私性较差，直接在URL后面。<br>3、路径可以容纳的数据有限，只能传递少量参数。<br>4、所有请求默认就是get。<br><strong>POST</strong><br>1、采用实体内容传参数。<br>2、参数在传输过程中不可见，隐私性好。<br>3、实体内容专门用来传输数据，大小没有限制。<br>4、使用：在form上加method=”post”</p>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="什么是Servlet？"><a href="#什么是Servlet？" class="headerlink" title="什么是Servlet？"></a>什么是Servlet？</h3><p>Servlet是用Java编写的服务端程序，主要功能在于交互式地浏览和修改数据，生成<code>动态web内容</code>。Servlet运行于支持Java的应用服务器中。是sun公司提供的一套规范(接口),用来处理客户端的请求、响应动态资源给浏览器的。<br>Servlet实质就是java代码，通过java的API动态的向客户端输出内容。</p>
+<h3 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h3><p>Servlet的生命周期包括<code>加载</code>和<code>实例化、初始化、处理请求</code>以及<code>服务结束</code></p>
+<blockquote>
+<p><code>init()</code>：<br>在Servlet的生命周期中，仅执行一次init()方法。它是在服务器装入Servlet时执行的，负责初始化Servlet对象。可以配置服务器，以在启动服务器或客户机首次访问Servlet时装入Servlet。无论有多少客户机访问Servlet，都不会重复执行init（）。<br><code>service()</code>：<br>它是Servlet的核心，负责响应客户的请求。每当一个客户请求一个HttpServlet对象，该对象的Service()方法就要调用，而且传递给这个方法一个“请求”（ServletRequest）对象和一个“响应”（ServletResponse）对象作为参数。在HttpServlet中已存在Service()方法。默认的服务功能是调用与HTTP请求的方法相应的do功能。<br><code>destroy（）</code>：<br>仅执行一次，在服务器端停止且卸载Servlet时执行该方法。当Servlet对象退出生命周期时，负责释放占用的资源。一个Servlet在运行service()方法时可能会产生其他的线程，因此需要确认在调用destroy()方法时，这些线程已经终止或完成。</p>
+</blockquote>
+<p><strong>Servlet工作的步骤：</strong><br>1.Web Client 向Servlet容器（Tomcat）发出Http请求<br>2.Servlet容器接收Web Client的请求<br>3.Servlet容器创建一个HttpRequest对象，将Web Client请求的信息封装到这个对象中。<br>4.Servlet容器创建一个HttpResponse对象<br>5.Servlet容器调用HttpServlet对象的service方法，把6.HttpRequest对象与HttpResponse对象作为参数传给HttpServlet 对象。<br>7.HttpServlet调用HttpRequest对象的有关方法，获取Http请求信息。<br>8.HttpServlet调用HttpResponse对象的有关方法，生成响应数据。<br>9.Servlet容器把HttpServlet的响应结果传给Web Client。</p>
+<h3 id="Servlet中转发和重定向的区别"><a href="#Servlet中转发和重定向的区别" class="headerlink" title="Servlet中转发和重定向的区别"></a>Servlet中转发和重定向的区别</h3><p>1.转发是服务器端的转向，重定向是客户端的跳转<br>2.转发浏览器的地址不会发生改变，重定向浏览器地址会发生改变<br>3.转发是在一次请求中完成，重定向是重新发起请求<br>4.转发是在服务器端完成，而不用客户端重新发起请求，效率较高</p>
+<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><h3 id="什么是JSP"><a href="#什么是JSP" class="headerlink" title="什么是JSP"></a>什么是JSP</h3><p>JSP就是一个servlet程序，servlet的技术可以用在jsp程序中，但是jsp的技术并不是全部适用servlet程序。<br>jsp继承servlet。</p>
+<h3 id="JSP的内置对象及作用"><a href="#JSP的内置对象及作用" class="headerlink" title="JSP的内置对象及作用"></a>JSP的内置对象及作用</h3><p><strong>Jsp中的四个域对象</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">域对象</th>
+<th style="text-align:center">作用范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pageContext</td>
+<td style="text-align:center">page域</td>
+</tr>
+<tr>
+<td style="text-align:center">request</td>
+<td style="text-align:center">request域</td>
+</tr>
+<tr>
+<td style="text-align:center">session</td>
+<td style="text-align:center">sesion域</td>
+</tr>
+<tr>
+<td style="text-align:center">application</td>
+<td style="text-align:center">context域</td>
+</tr>
+</tbody>
+</table>
+<p>1、域对象的作用：<br>保存数据和获取数据，用于数据的共享。<br>2、域对象方法：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">setAttribute</span>(<span class="string">"name"</span>, Object);<span class="comment">//保存数据</span></span><br><span class="line"><span class="selector-tag">getAttribute</span>(<span class="string">"name"</span>);<span class="comment">//获取数据</span></span><br><span class="line"><span class="selector-tag">removeAttribute</span>(<span class="string">"name"</span>);<span class="comment">//清除数据</span></span><br></pre></td></tr></table></figure></p>
+<p>3、域对象的作用范围:<br>page域：只能在当前jsp页面使用（当前页面）<br>request域：只能在一次请求中使用（转发）<br>session域：只能在同一个会话中使用（会话，私有的）<br>context域（application域）：只能在同一个web应用中使用（全局的）</p>
+<h2 id="Session和Cookie的区别"><a href="#Session和Cookie的区别" class="headerlink" title="Session和Cookie的区别"></a>Session和Cookie的区别</h2><blockquote>
+<p>Session和cookie都是会话(Seesion)跟踪技术。Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份。但是Session的实现依赖于Cookie,sessionId(session的唯一标识需要存放在客户端).</p>
+</blockquote>
+<p><strong>cookie 和session 的区别：</strong><br>1、cookie数据存放在客户的浏览器上，session数据放在服务器上。<br>2、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗,考虑到安全应当使用session。<br>3、session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能,考虑到减轻服务器性能方面，应当使用COOKIE。<br>4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。<br>5、所以尽量：<br>   将登陆信息等重要信息存放为SESSION<br>   其他信息如果需要保留，可以放在COOKIE中，比如购物车<br>购物车最好使用cookie，但是cookie是可以在客户端禁用的，这时候我们要使用cookie+数据库的方式实现，当从cookie中不能取出数据时，就从数据库获取。</p>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        
+      
+	</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你可以对我打赏了哦</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.jpg" alt="logan_wz WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali.jpg" alt="logan_wz Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    logan_wz
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://loganwz.com/2018/09/17/logan06java/" title="基础知识(一):Java部分">http://loganwz.com/2018/09/17/logan06java/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/基础知识/" rel="tag"><i class="fa fa-tag"></i> 基础知识</a>
+          
+            <a href="/tags/编程语言/" rel="tag"><i class="fa fa-tag"></i> 编程语言</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/26/logan05Git(2)/" rel="next" title="Git(二):版本回退及分支">
+                <i class="fa fa-chevron-left"></i> Git(二):版本回退及分支
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/17/logan07Singleton/" rel="prev" title="单例模式">
+                单例模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODU2My8xNTA5MQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/i.jpg"
+                alt="logan_wz" />
+            
+              <p class="site-author-name" itemprop="name">logan_wz</p>
+              <p class="site-description motion-element" itemprop="description">永远年轻，永远热泪盈眶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:logan_wz@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://segmentfault.com/u/logan1961" target="_blank" title="SegmentFault">
+                      
+                        <i class="fa fa-fw fa-archive"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://music.163.com/#/user/home?id=123708673" title="网易云音乐" target="_blank">网易云音乐</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java基础部分"><span class="nav-number">1.</span> <span class="nav-text">Java基础部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java跨平台原理"><span class="nav-number">1.1.</span> <span class="nav-text">Java跨平台原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的基本数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">Java中的基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包装数据类型"><span class="nav-number">1.3.</span> <span class="nav-text">包装数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String和StringBuffer、StringBuilder的区别"><span class="nav-number">1.4.</span> <span class="nav-text">String和StringBuffer、StringBuilder的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的集合"><span class="nav-number">1.5.</span> <span class="nav-text">Java中的集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection接口"><span class="nav-number">1.5.1.</span> <span class="nav-text">Collection接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map接口"><span class="nav-number">1.5.2.</span> <span class="nav-text">Map接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap哈HashTable的区别-HashTable和ConcurrentHashMap的区别？"><span class="nav-number">1.6.</span> <span class="nav-text">HashMap哈HashTable的区别?HashTable和ConcurrentHashMap的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的几种实现方式-启动方式？区分方式？"><span class="nav-number">1.7.</span> <span class="nav-text">线程的几种实现方式?启动方式？区分方式？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有没有使用过线程并发库"><span class="nav-number">1.8.</span> <span class="nav-text">有没有使用过线程并发库?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池的作用"><span class="nav-number">1.9.</span> <span class="nav-text">线程池的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的设计模式有哪些？"><span class="nav-number">1.10.</span> <span class="nav-text">常用的设计模式有哪些？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-Web部分"><span class="nav-number">2.</span> <span class="nav-text">Java Web部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http中get和post请求的区别？"><span class="nav-number">2.1.</span> <span class="nav-text">http中get和post请求的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet"><span class="nav-number">2.2.</span> <span class="nav-text">Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Servlet？"><span class="nav-number">2.2.1.</span> <span class="nav-text">什么是Servlet？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet的生命周期"><span class="nav-number">2.2.2.</span> <span class="nav-text">Servlet的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet中转发和重定向的区别"><span class="nav-number">2.2.3.</span> <span class="nav-text">Servlet中转发和重定向的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSP"><span class="nav-number">2.3.</span> <span class="nav-text">JSP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是JSP"><span class="nav-number">2.3.1.</span> <span class="nav-text">什么是JSP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的内置对象及作用"><span class="nav-number">2.3.2.</span> <span class="nav-text">JSP的内置对象及作用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session和Cookie的区别"><span class="nav-number">2.4.</span> <span class="nav-text">Session和Cookie的区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">logan_wz</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+-->
+
+
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/29/2018 0:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">| 全站13.3k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问用户：
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>：
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<!-- <script type="text/javascript" src="/js/src/love.js"></script> -->
