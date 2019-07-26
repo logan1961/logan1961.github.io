@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="两种请求方式URL请求通常有两种方式：GET请求和POST请求​">
+<meta name="description" content="两种请求方式URL请求通常有两种方式：GET请求和POST请求    GET请求的数据会附在URL之后，通过?来拼接所传的参数，参数之间以&amp;amp;相连。请求中发送的参数如果是字母或者数字则按照原样发送，空格则转换为+，中文或者其他字符则按照base64位加密，得到%E4%BD%A0%E5%A5%BD类似的形式，其中%xx为该符号以16进制表示的ASCII码。​    POST请求的参数不是放在U">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HttpURLConnection的使用">
 <meta property="og:url" content="http://loganwz.com/2019/03/15/log14http/index.html">
 <meta property="og:site_name" content="Logan&#39;s Blog">
-<meta property="og:description" content="两种请求方式URL请求通常有两种方式：GET请求和POST请求​">
+<meta property="og:description" content="两种请求方式URL请求通常有两种方式：GET请求和POST请求    GET请求的数据会附在URL之后，通过?来拼接所传的参数，参数之间以&amp;amp;相连。请求中发送的参数如果是字母或者数字则按照原样发送，空格则转换为+，中文或者其他字符则按照base64位加密，得到%E4%BD%A0%E5%A5%BD类似的形式，其中%xx为该符号以16进制表示的ASCII码。​    POST请求的参数不是放在U">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-21T10:02:24.114Z">
+<meta property="og:updated_time" content="2019-07-22T06:34:02.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HttpURLConnection的使用">
-<meta name="twitter:description" content="两种请求方式URL请求通常有两种方式：GET请求和POST请求​">
+<meta name="twitter:description" content="两种请求方式URL请求通常有两种方式：GET请求和POST请求    GET请求的数据会附在URL之后，通过?来拼接所传的参数，参数之间以&amp;amp;相连。请求中发送的参数如果是字母或者数字则按照原样发送，空格则转换为+，中文或者其他字符则按照base64位加密，得到%E4%BD%A0%E5%A5%BD类似的形式，其中%xx为该符号以16进制表示的ASCII码。​    POST请求的参数不是放在U">
 
 
 
@@ -456,7 +456,7 @@
       
 
       
-        <h2 id="两种请求方式"><a href="#两种请求方式" class="headerlink" title="两种请求方式"></a>两种请求方式</h2><p>URL请求通常有两种方式：GET请求和POST请求<br>​    <a id="more"></a><br>    <strong>GET请求</strong>的数据会附在URL之后，通过?来拼接所传的参数，参数之间以&amp;相连。请求中发送的参数如果是字母或者数字则按照原样发送，空格则转换为+，中文或者其他字符则按照base64位加密，得到<code>%E4%BD%A0%E5%A5%BD</code>类似的形式，其中%xx为该符号以16进制表示的ASCII码。<br>​    <strong>POST请求</strong>的参数不是放在URL字符串里面，而是放在HTTP请求的正文内，请求的参数被封装起来以流的形式发送给服务端。</p>
+        <h2 id="两种请求方式"><a href="#两种请求方式" class="headerlink" title="两种请求方式"></a>两种请求方式</h2><p>URL请求通常有两种方式：GET请求和POST请求<br>    <strong>GET请求</strong>的数据会附在URL之后，通过?来拼接所传的参数，参数之间以&amp;相连。请求中发送的参数如果是字母或者数字则按照原样发送，空格则转换为+，中文或者其他字符则按照base64位加密，得到<code>%E4%BD%A0%E5%A5%BD</code>类似的形式，其中%xx为该符号以16进制表示的ASCII码。<br>​    <strong>POST请求</strong>的参数不是放在URL字符串里面，而是放在HTTP请求的正文内，请求的参数被封装起来以流的形式发送给服务端。<br>    ​    <a id="more"></a></p>
 <pre><code>两者主要的区别：GET请求参数直接拼接在URL后面，隐私性较差，长度可能会受限制，GET请求能够被缓存，一般请求的默认为GET；POST请求通过实体内容传参数隐私性好，大小没有限制，POST请求不能被缓存下来，需要声明采用POST。
 一般，Get是向服务器索取数据的一种请求，而Post是向服务器提交数据的一种请求。
 </code></pre><h2 id="HttpURLConnection使用"><a href="#HttpURLConnection使用" class="headerlink" title="HttpURLConnection使用"></a>HttpURLConnection使用</h2><p>HttpURLConnection它继承自URLConnection，可用于向指定网站发送GET请求、POST请求。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">URL url = new URL(<span class="string">"URL"</span>);</span><br><span class="line">HttpURLConnection<span class="built_in"> connection </span>= (HttpURLConnection) url.openConnection();</span><br><span class="line">connection.setDoOutput(<span class="literal">true</span>);</span><br><span class="line">connection.setDoInput(<span class="literal">true</span>);</span><br><span class="line">connection.setUseCaches(<span class="literal">false</span>);</span><br><span class="line">connection.setInstanceFollowRedirects(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure></p>
