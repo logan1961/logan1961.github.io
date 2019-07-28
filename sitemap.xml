@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://loganwz.com/2018/11/30/logan10blog2/</loc>
+    
+    <lastmod>2019-07-28T07:11:03.073Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://loganwz.com/2018/09/17/logan06java/</loc>
+    
+    <lastmod>2019-07-28T07:10:06.866Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://loganwz.com/2018/08/26/logan05Git(2)/</loc>
+    
+    <lastmod>2019-07-28T07:09:52.337Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://loganwz.com/2018/08/13/logan03markdown/</loc>
+    
+    <lastmod>2019-07-28T07:09:13.643Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://loganwz.com/2018/08/03/logan02Git/</loc>
+    
+    <lastmod>2019-07-28T07:08:44.448Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://loganwz.com/about/index.html</loc>
+    
+    <lastmod>2019-07-28T07:06:51.289Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://loganwz.com/tags/index.html</loc>
+    
+    <lastmod>2019-07-28T07:02:56.870Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://loganwz.com/about/index-1.html</loc>
+    
+    <lastmod>2019-07-28T06:58:26.230Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://loganwz.com/tags/index-1.html</loc>
+    
+    <lastmod>2019-07-28T06:57:17.829Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://loganwz.com/2019/03/04/log13oraDB/</loc>
     
     <lastmod>2019-07-22T06:34:23.196Z</lastmod>
@@ -23,7 +86,7 @@
   </url>
   
   <url>
-    <loc>http://loganwz.com/about/index.html</loc>
+    <loc>http://loganwz.com/about/index%20-%20%E5%8E%9F%E7%89%88%E6%9C%AC.html</loc>
     
     <lastmod>2019-07-21T10:15:44.049Z</lastmod>
     
@@ -44,13 +107,6 @@
   </url>
   
   <url>
-    <loc>http://loganwz.com/2018/08/13/logan03markdown/</loc>
-    
-    <lastmod>2019-01-03T02:22:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://loganwz.com/2018/11/29/logan09blog/</loc>
     
     <lastmod>2018-12-31T09:00:50.000Z</lastmod>
@@ -61,34 +117,6 @@
     <loc>http://loganwz.com/2018/11/14/logan08map/</loc>
     
     <lastmod>2018-12-31T09:00:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://loganwz.com/2018/09/17/logan06java/</loc>
-    
-    <lastmod>2018-12-31T09:00:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://loganwz.com/2018/08/26/logan05Git(2)/</loc>
-    
-    <lastmod>2018-12-31T09:00:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://loganwz.com/2018/11/30/logan10blog2/</loc>
-    
-    <lastmod>2018-12-21T10:59:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://loganwz.com/2018/08/03/logan02Git/</loc>
-    
-    <lastmod>2018-11-29T13:01:30.000Z</lastmod>
     
   </url>
   
@@ -114,7 +142,7 @@
   </url>
   
   <url>
-    <loc>http://loganwz.com/tags/index.html</loc>
+    <loc>http://loganwz.com/tags/index%20-%20hexo%E5%8E%9F%E7%89%88%E6%9C%AC.html</loc>
     
     <lastmod>2018-08-01T02:46:34.000Z</lastmod>
     
