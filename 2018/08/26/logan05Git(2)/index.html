@@ -137,20 +137,25 @@
 </span>
 </span>
     </div>
-    <div class="post-content ">
+    <div class="post-content no-indent">
         <p>关于Git版本控制更加深入一点的知识，详细初始使用请查看上一篇：<a href="http://loganwz.com/2018/08/03/logan02Git/" title="关于Git的配置使用及常见问题">关于Git的配置使用及常见问题</a><br>本文主要包括版本回退及分支相关内容。<br><a id="more"></a></p>
 <h1 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h1><ul>
 <li><code>git reset --hard HEAD^</code>回退到上一版本</li>
 <li><code>git reset --hard HEAD^</code>回退到上上版本</li>
 <li><code>git reset --hard HEAD~100</code>回退到上100个版本</li>
-<li><code>git reset --hard 具体版本号</code>回退到具体版本号<br>记录每一次命令：<code>git reflog</code><br><code>git checkout -- readme.txt</code>：<br>命令<code>git checkout -- readme.txt</code>意思就是，把<code>readme.txt</code>文件在工作区的修改全部撤销，这里有两种情况：<br>一种是<code>readme.txt</code>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>一种是<code>readme.txt</code>已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。<br>总之，就是让这个文件回到最近一<code>次git commit</code>或<code>git add</code>时的状态。<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1>删除文件后，Git知道你删除了文件，因此，工作区和版本库就不一致了，<code>git status</code>命令会立刻告诉你哪些文件被删除了：<br>现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令<code>git rm filename</code> 删掉，并且<code>git commit</code><br>另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本： <code>git checkout -- filename</code><h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1></li>
+<li><code>git reset --hard 具体版本号</code>回退到具体版本号<br>记录每一次命令：<code>git reflog</code><br><code>git checkout -- readme.txt</code>：<br>命令<code>git checkout -- readme.txt</code>意思就是，把<code>readme.txt</code>文件在工作区的修改全部撤销，这里有两种情况：<br>一种是<code>readme.txt</code>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>一种是<code>readme.txt</code>已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。<br>总之，就是让这个文件回到最近一<code>次git commit</code>或<code>git add</code>时的状态。</li>
+</ul>
+<h1 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h1><p>删除文件后，Git知道你删除了文件，因此，工作区和版本库就不一致了，<code>git status</code>命令会立刻告诉你哪些文件被删除了：<br>现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令<code>git rm filename</code> 删掉，并且<code>git commit</code><br>另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本： <code>git checkout -- filename</code></p>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><ul>
 <li><code>git branch 分支名</code>：创建分支</li>
 <li><code>git checkout 分支名</code>：切换分支</li>
 <li><code>git checkout -b 分支名</code> ：创建与切换同时进行</li>
 <li><code>git branch</code>：列出所有分支</li>
 <li><code>git merge dev</code>：把dev分支的工作成果合并到master分支上</li>
-<li><code>git branch -d 分支名</code> : 删除分支<h1 id="分支策略"><a href="#分支策略" class="headerlink" title="分支策略"></a>分支策略</h1>在实际开发中，我们应该按照几个基本原则进行分支管理：<br>首先，<code>master</code>分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；<br>那在哪干活呢？干活都在<code>dev</code>分支上，也就是说，<code>dev</code>分支是不稳定的，到某个时候，比如1.0版本发布时，再把<code>dev</code>分支合并到<code>master</code>上，在<code>master</code>分支发布1.0版本；<br>你和你的小伙伴们每个人都在<code>dev</code>分支上干活，每个人都有自己的分支，时不时地往<code>dev</code>分支上合并就可以了。<br>所以，团队合作的分支看起来就像这样：<br><img src="https://i.imgur.com/zwosVyW.png" alt=""><h1 id="多人协助"><a href="#多人协助" class="headerlink" title="多人协助"></a>多人协助</h1><img src="https://i.imgur.com/OMHN1l4.png" alt=""></li>
+<li><code>git branch -d 分支名</code> : 删除分支</li>
 </ul>
+<h1 id="分支策略"><a href="#分支策略" class="headerlink" title="分支策略"></a>分支策略</h1><p>在实际开发中，我们应该按照几个基本原则进行分支管理：<br>首先，<code>master</code>分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；<br>那在哪干活呢？干活都在<code>dev</code>分支上，也就是说，<code>dev</code>分支是不稳定的，到某个时候，比如1.0版本发布时，再把<code>dev</code>分支合并到<code>master</code>上，在<code>master</code>分支发布1.0版本；<br>你和你的小伙伴们每个人都在<code>dev</code>分支上干活，每个人都有自己的分支，时不时地往<code>dev</code>分支上合并就可以了。<br>所以，团队合作的分支看起来就像这样：<br><img src="https://i.imgur.com/zwosVyW.png" alt=""></p>
+<h1 id="多人协助"><a href="#多人协助" class="headerlink" title="多人协助"></a>多人协助</h1><p><img src="https://i.imgur.com/OMHN1l4.png" alt=""></p>
 <p>本文作者：<code>rottengeek</code><br>原文链接：<a href="https://segmentfault.com/a/1190000016012022" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016012022</a></p>
 
         

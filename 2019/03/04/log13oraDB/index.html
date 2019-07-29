@@ -140,17 +140,19 @@
 </span>
 </span>
     </div>
-    <div class="post-content ">
+    <div class="post-content no-indent">
         <p>之前只用过MySQL数据库，在第一次接触Oracle数据库时很多不一样的概念很困惑，通过网上查询资料对Oracle有了一定的了解。</p>
 <p>这篇主要包括Oracle的一些概念，包括简单的sql语句，关于sql语法还会再总结一篇…<br><a id="more"></a></p>
 <h2 id="Oracle和MySQL的区别"><a href="#Oracle和MySQL的区别" class="headerlink" title="Oracle和MySQL的区别"></a>Oracle和MySQL的区别</h2><ul>
 <li>Oracle默认端口：1521 默认用户为System；MySQL默认端口3306 默认用户root</li>
 <li>Oracle语法较为严格，MySQL语法灵活</li>
-<li>Oracle是通过表空间管理；MySQL不是<h2 id="Oracle数据库的一些概念"><a href="#Oracle数据库的一些概念" class="headerlink" title="Oracle数据库的一些概念"></a>Oracle数据库的一些概念</h2><h3 id="“数据库”"><a href="#“数据库”" class="headerlink" title="“数据库”"></a>“数据库”</h3>Oracle数据库是数据的物理存储，包括（数据文件ORA或者DBF、控制文件、联机日志、参数文件），Oracle数据库的概念和其他数据库不同，这里的数据库是一个操作系统只有一个库，包含物理数据、数据库管理系统（即物理数据、内存、操作系统进程的组合体），可以理解为Oracle只有一个大数据库。<h3 id="“数据库实例”"><a href="#“数据库实例”" class="headerlink" title="“数据库实例”"></a>“数据库实例”</h3>一个数据库可以有n个实例<blockquote>
+<li>Oracle是通过表空间管理；MySQL不是</li>
+</ul>
+<h2 id="Oracle数据库的一些概念"><a href="#Oracle数据库的一些概念" class="headerlink" title="Oracle数据库的一些概念"></a>Oracle数据库的一些概念</h2><h3 id="“数据库”"><a href="#“数据库”" class="headerlink" title="“数据库”"></a>“数据库”</h3><p>Oracle数据库是数据的物理存储，包括（数据文件ORA或者DBF、控制文件、联机日志、参数文件），Oracle数据库的概念和其他数据库不同，这里的数据库是一个操作系统只有一个库，包含物理数据、数据库管理系统（即物理数据、内存、操作系统进程的组合体），可以理解为Oracle只有一个大数据库。</p>
+<h3 id="“数据库实例”"><a href="#“数据库实例”" class="headerlink" title="“数据库实例”"></a>“数据库实例”</h3><p>一个数据库可以有n个实例</p>
+<blockquote>
 <p>Oracle官方描述：实例是访问Oracle数据库所需的一部分计算机内存和辅助处理后台进程，是由进程和这些进程所使用的内存(SGA)所构成一个集合。其实就是用来访问和使用数据库的一块进程，它只存在于内存中。就像Java中new出来的实例对象一样。我们访问Oracle都是访问一个实例，但这个实例如果关联了数据库文件，就是可以访问的，如果没有，就会得到实例不可用的错误。</p>
 </blockquote>
-</li>
-</ul>
 <h3 id="“数据文件”"><a href="#“数据文件”" class="headerlink" title="“数据文件”"></a>“数据文件”</h3><p>数据文件是数据库的物理存储单位，数据库的数据存储在表空间中，实际上真正存储在某一个或多个数据文件中。<br>一个表空间可以由一个或多个数据文件组成，一个数据文件只能属于一个表空间。<strong>一旦数据文件被加入到某个表空间，就不能删除这个文件，如果要删除某个数据文件，只能删除对应的表空间。</strong></p>
 <h3 id="“表空间”"><a href="#“表空间”" class="headerlink" title="“表空间”"></a>“表空间”</h3><p>表空间是一个用来管理数据存储逻辑概念，表空间只是和数据文件（ORA或者DBF文件）发生关系，数据文件是物理的，一个表空间可以包含多个数据文件，而一个数据文件只能隶属一个表空间，一个表空间只能属于一个数据库。<br>Oracle数据库是通过表空间来存储物理表的，一个数据库实例可以有N个表空间，一个表空间下可以有N张表。有了数据库，<br>就可以创建表空间。<br>表空间(tablespace)是数据库的逻辑划分，每个数据库至少有一个表空间(称作SYSTEM表空间)。为了便于管理和提高运行效率，可以使用一些附加表空间来划分用户和应用程序。例如：USER表空间供一般用户使用，RBS表空间供回滚段使用。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//创建表空间：</span><br><span class="line">//<span class="keyword">Create</span> <span class="keyword">TableSpace</span> 表空间名称</span><br><span class="line">//       <span class="keyword">DataFile</span> 表空间数据文件路径</span><br><span class="line">//       <span class="keyword">Size</span> 表空间初始大小</span><br><span class="line">//       <span class="keyword">Autoextend</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">tablespace</span> db_test</span><br><span class="line">        <span class="keyword">datafile</span> <span class="string">'D:\oracle\product\10.2.0\userdata\db_test.dbf'</span></span><br><span class="line">        <span class="keyword">size</span> <span class="number">50</span>m</span><br><span class="line">        <span class="keyword">autoextend</span> <span class="keyword">on</span>;</span><br></pre></td></tr></table></figure></p>
 <h3 id="“用户”"><a href="#“用户”" class="headerlink" title="“用户”"></a>“用户”</h3><p>数据库创建完成后，要想在数据库里创建表，必须为数据库建立用户，并为用户指定表空间。<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> USER aaa   <span class="comment">//用户名</span></span><br><span class="line">       IDENTIFIED <span class="keyword">BY</span> aaa123   <span class="comment">//密码  </span></span><br><span class="line">       <span class="keyword">DEFAULT</span> TABLESPACE db_test   <span class="comment">//设置表空间</span></span><br></pre></td></tr></table></figure></p>
