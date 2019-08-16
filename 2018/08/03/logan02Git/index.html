@@ -140,44 +140,39 @@
     <div class="post-content no-indent">
         <p>Git作为版本控制工具，学会并掌握它的使用方法是非常有必要的。网上很多关于Git的教程也写的非常详细，为了加深理解以及能给其他人提供帮助，今天写一下Git的使用和配置问题。<br><a id="more"></a></p>
 <h1 id="Git的使用"><a href="#Git的使用" class="headerlink" title="Git的使用"></a>Git的使用</h1><p>通过Git你能够很容易的管理你的本地库以及同步coding/github上的远程库。<br>关于Git的安装在这里就不再赘述，网上有很详细的介绍。</p>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>下载完成在电脑上安装Git之后，点击鼠标右键你会发现多了两个按钮”Git Gui Here”和”Git Bash Here”，我们用到的就是第二个，点击它之后会出现这个界面：<br><img src="https://i.imgur.com/bpMvmRB.png" alt=""><br>我们现在要做的就是登录它了，<br>在光标处依次输入：</p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>下载完成在电脑上安装Git之后，点击鼠标右键你会发现多了两个按钮”Git Gui Here”和”Git Bash Here”，我们用到的就是第二个，点击它之后会出现这个界面：<br><img src="http://pvjbpccn5.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190816203122.jpg" alt=""><br>我们现在要做的就是登录它了，<br>在光标处依次输入：</p>
 <blockquote>
 <p><code>git config --global user.name “Your Name”</code><br><code>git config --global user.email “email@example.com”</code><br><code>&quot;yourname&quot;</code>和<code>&quot;email@example.com&quot;</code>是要输入你自己的姓名和邮箱。这个只是作为你的登录凭证，不是必须要跟github账号一样。<br>当你输入完成之后就可以进行一些操作了。</p>
 </blockquote>
-<h2 id="本地库的操作"><a href="#本地库的操作" class="headerlink" title="本地库的操作"></a>本地库的操作</h2><p>选择你要处理的已经有的本地项目文件夹，进入文件夹之后点击鼠标右键，选择Git Bash Here之后会出现如下界面<br><img src="https://i.imgur.com/SyzBj3l.png" alt=""></p>
+<h2 id="本地库的操作"><a href="#本地库的操作" class="headerlink" title="本地库的操作"></a>本地库的操作</h2><p>选择你要处理的已经有的本地项目文件夹，进入文件夹之后点击鼠标右键，选择Git Bash Here之后会出现如下界面<br><img src="http://pvjbpccn5.bkt.clouddn.com/img/logan02Git/01.jpg%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190816203130.jpg" alt=""></p>
 <blockquote>
 <p><code>git add aa.txt</code><br>//添加操作：将新建的aa.txt文件提交到暂存区中<br><code>git status</code><br>//查看操作：查看当前状态<br><code>git commit -m&quot;</code>你自己写的提交信息”<br>//提交操作：将文件从暂存区提交到本地库</p>
 </blockquote>
-<h2 id="新建一个本地库"><a href="#新建一个本地库" class="headerlink" title="新建一个本地库"></a>新建一个本地库</h2><p>如果我们想要新建一个项目的本地库的话，需要执行下面的这些操作：<br>假设我在桌面有一个叫 <code>&quot;wz&quot;</code>的空文件夹,我们现在进入这个文件夹，右键<code>Git Bash Here</code>，然后输入:<br><img src="https://i.imgur.com/K1Rw6Ep.png" alt=""></p>
-<blockquote>
-<p><code>mkdir wang</code><br>这时我们就在<code>wz</code>文件夹内新建了一个名为<code>wang</code>的文件夹，我们就把他当做要建立的新项目，<br><img src="https://i.imgur.com/LuLXP1Z.png" alt=""><br><code>cd wang</code><br>进入到了<code>wang</code>文件夹（以上两条命令都是linux指令，因为git就是基于linux命令来执行的）<br><img src="https://i.imgur.com/XaZzVEW.png" alt=""><br><code>git init</code><br>这时所在项目文件夹中会出现一个名为<code>.git</code>的隐藏文件，这表明你可以操作本地库了。<br><code>git add .</code><br><code>git status</code><br><code>git commit -m&quot;&quot;</code><br>操作本地库的指令在上面已经介绍过了，这样的话，本地操作已经基本完成了。接下来就是同步到远程库了</p>
-</blockquote>
+<h2 id="新建一个本地库"><a href="#新建一个本地库" class="headerlink" title="新建一个本地库"></a>新建一个本地库</h2><p>如果我们想要新建一个项目的本地库的话，需要执行下面的这些操作：<br>假设我在桌面有一个叫 <code>&quot;wz&quot;</code>的空文件夹,我们现在进入这个文件夹，右键<code>Git Bash Here</code>，然后输入:<br><img src="http://pvjbpccn5.bkt.clouddn.com/img/logan02Git/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190816203133.jpg" alt=""></p>
+<p><code>mkdir wang</code><br>这时我们就在<code>wz</code>文件夹内新建了一个名为<code>wang</code>的文件夹，我们就把他当做要建立的新项目，</p>
+<p><code>cd wang</code><br>进入到了<code>wang</code>文件夹（以上两条命令都是linux指令，因为git就是基于linux命令来执行的）</p>
+<p><code>git init</code><br>这时所在项目文件夹中会出现一个名为<code>.git</code>的隐藏文件，这表明你可以操作本地库了。<br><code>git add .</code><br><code>git status</code><br><code>git commit -m&quot;&quot;</code><br>操作本地库的指令在上面已经介绍过了，这样的话，本地操作已经基本完成了。接下来就是同步到远程库了</p>
 <h2 id="同步到远程库"><a href="#同步到远程库" class="headerlink" title="同步到远程库"></a>同步到远程库</h2><p>学会了管理本地库，同步到远程库也就很简单了。在这里就以同步到<code>github</code>上为例（<code>github</code>中<code>repository</code>的新建和配置网上有很详细的过程，操作也很简单）</p>
-<h3 id="创建SSH"><a href="#创建SSH" class="headerlink" title="创建SSH"></a>创建SSH</h3><p>第一次用<code>Git</code>管理远程库需要创建<code>SSH</code><br><img src="https://i.imgur.com/iYeMK5V.png" alt=""></p>
+<h3 id="创建SSH"><a href="#创建SSH" class="headerlink" title="创建SSH"></a>创建SSH</h3><p>第一次用<code>Git</code>管理远程库需要创建<code>SSH</code><br><img src="http://pvjbpccn5.bkt.clouddn.com/img/logan02Git/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190816203138.png" alt=""></p>
 <blockquote>
 <p><code>ssh-keygen -t rsa -C &quot;你的邮箱&quot;</code><br>邮箱是注册Github是留的邮箱，输入命令之后连续回车会出现上图界面，这表示已经创建成功。</p>
 </blockquote>
-<h3 id="添加SSH到github"><a href="#添加SSH到github" class="headerlink" title="添加SSH到github"></a>添加SSH到github</h3><p><img src="https://i.imgur.com/rivv9TO.png" alt=""><br>进入github个人账户的<code>settings</code>中，找到如图所示位置，将创建SSH后生成的<code>id_rsa</code>文件复制后，选择<code>New SSH key</code>，粘贴进去，文件名随便。</p>
-<h3 id="测试SSH是否成功"><a href="#测试SSH是否成功" class="headerlink" title="测试SSH是否成功"></a>测试SSH是否成功</h3><p>输入</p>
+<h3 id="添加SSH到github"><a href="#添加SSH到github" class="headerlink" title="添加SSH到github"></a>添加SSH到github</h3><p><img src="http://pvjbpccn5.bkt.clouddn.com/img/logan02Git/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190816203142.jpg" alt=""><br>进入github个人账户的<code>settings</code>中，找到如图所示位置，将创建SSH后生成的<code>id_rsa</code>文件复制后，选择<code>New SSH key</code>，粘贴进去，文件名随便。</p>
+<h3 id="测试SSH是否成功"><a href="#测试SSH是否成功" class="headerlink" title="测试SSH是否成功"></a>测试SSH是否成功</h3><p>输入<code>ssh -T git@github.com</code><br>//注意是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，不是你的邮箱。<br>会提示你：</p>
 <blockquote>
-<p><code>ssh -T git@github.com</code><br>//注意是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，不是你的邮箱。<br>会提示你：<br>The authenticity of host ‘github.com (192.30.255.112)’ can’t be established.<br>RSA key fingerprint is &gt;SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.<br>Are you sure you want to continue connecting (yes/no)?<br>正常提示，你只需要YES就可以。如果你创建 SSH key 的时候设置了密码，接下来就会提示你输入密码，如果你没设置密码会提示你：<br><code>Warning: Permanently added ‘github.com,192.30.255.112’ (RSA) to the &gt;list of known hosts.</code><br><code>Hi “用户名”! You’ve successfully authenticated, but GitHub does not &gt;provide shell access.</code></p>
+<p>The authenticity of host ‘github.com (192.30.255.112)’ can’t be established.<br>RSA key fingerprint is &gt;SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.<br>Are you sure you want to continue connecting (yes/no)?<br>正常提示，你只需要YES就可以。如果你创建 SSH key 的时候设置了密码，接下来就会提示你输入密码，如果你没设置密码会提示你：</p>
+</blockquote>
+<blockquote>
+<p><code>Warning: Permanently added ‘github.com,192.30.255.112’ (RSA) to the &gt;list of known hosts.</code><br><code>Hi “用户名”! You’ve successfully authenticated, but GitHub does not &gt;provide shell access.</code></p>
 </blockquote>
 <p>如果用户名是正确的,你已经成功设置SSH密钥。如果你看到 <code>“access denied”</code> ，者表示拒绝访问，那么你就需要使用<code>https</code>去访问。</p>
-<h3 id="提交到远程库"><a href="#提交到远程库" class="headerlink" title="提交到远程库"></a>提交到远程库</h3><p>将本地库的更改同步到远程库只需在管理本地库的三步基础上增加下面的指令：</p>
-<blockquote>
-<p><code>git push origin master</code><br>//提交到远程库<br><img src="https://i.imgur.com/BpIADCe.png" alt=""><br>这样就大功告成了！</p>
-</blockquote>
+<h3 id="提交到远程库"><a href="#提交到远程库" class="headerlink" title="提交到远程库"></a>提交到远程库</h3><p>将本地库的更改同步到远程库只需在管理本地库的三步基础上增加下面的指令：<br><code>git push origin master</code>      //提交到远程库<br><img src="http://pvjbpccn5.bkt.clouddn.com/img/logan02Git/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190816203148.jpg" alt=""><br>这样就大功告成了！</p>
 <h1 id="使用中常见问题"><a href="#使用中常见问题" class="headerlink" title="使用中常见问题"></a>使用中常见问题</h1><p>紧接上文，在配置使用Git过程中遇到了很多的问题，以下是Git使用中常见的问题</p>
-<h2 id="设置签名"><a href="#设置签名" class="headerlink" title="设置签名"></a>设置签名</h2><blockquote>
-<p><code>git config --global user.name &quot; &quot;</code><br><code>git config --global user.email &quot; &quot;</code><br>在初次使用Git时需要设置签名，输入姓名和邮箱，其实这里的姓名和邮箱并不是github上的用户名和绑定的邮箱，这里要输入的签名只是为了分辨是谁在操作本地库。</p>
-</blockquote>
-<h2 id="本地库提交不成功"><a href="#本地库提交不成功" class="headerlink" title="本地库提交不成功"></a>本地库提交不成功</h2><p>最开始使用git的时候，在开始步骤管理本地库都经常出错，主要因为没有理解git的结构落下某条命令。<br><img src="https://i.imgur.com/tF2Ur6l.png" alt=""><br>git结构如图所示，分为<code>工作区</code>、<code>暂存区</code>、<code>本地库</code><br>git add命令是将当前的文件临时存储在暂存区，而到了<code>git commit</code>命令才是真正的把暂存区的文件同步到了本地库。<br>在这个过程中你可以随时用<code>git status</code>来查看当前的状态</p>
+<h2 id="设置签名"><a href="#设置签名" class="headerlink" title="设置签名"></a>设置签名</h2><p><code>git config --global user.name &quot; &quot;</code><br><code>git config --global user.email &quot; &quot;</code><br>在初次使用Git时需要设置签名，输入姓名和邮箱，其实这里的姓名和邮箱并不是github上的用户名和绑定的邮箱，这里要输入的签名只是为了分辨是谁在操作本地库。</p>
+<h2 id="本地库提交不成功"><a href="#本地库提交不成功" class="headerlink" title="本地库提交不成功"></a>本地库提交不成功</h2><p>最开始使用git的时候，在开始步骤管理本地库都经常出错，主要因为没有理解git的结构落下某条命令。<br><img src="http://pvjbpccn5.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190816210102.jpg" alt=""><br>git结构如图所示，分为<code>工作区</code>、<code>暂存区</code>、<code>本地库</code><br>git add命令是将当前的文件临时存储在暂存区，而到了<code>git commit</code>命令才是真正的把暂存区的文件同步到了本地库。<br>在这个过程中你可以随时用<code>git status</code>来查看当前的状态</p>
 <h2 id="每次push都要输密码"><a href="#每次push都要输密码" class="headerlink" title="每次push都要输密码"></a>每次push都要输密码</h2><p>每次都要输入用户名和密码，是因为采用了https的方式同步远程库。配置好SSH Key之后换用SSH方式同步就在也不用输密码了。</p>
 <h2 id="卡住不动"><a href="#卡住不动" class="headerlink" title="卡住不动"></a>卡住不动</h2><p>提交到github过程中卡主不动，在没有其他error的前提下，可能是因为网络问题，多试几次即可。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在配置的基础上操作本地库以及远程库的指令汇总如下：</p>
-<blockquote>
-<p><code>git init</code> //初始空仓库时才需要<br><code>git add .</code>  // .表示添加当前的全部文件<br><code>git commit  -m  &quot;提交信息&quot;</code>  //“提交信息”里面换成你需要，如“first commit”<br><code>git push origin master</code><br>其他的git指令可以参考<a href="https://www.cnblogs.com/my--sunshine/p/7093412.html" target="_blank" rel="noopener">https://www.cnblogs.com/my–sunshine/p/7093412.html</a></p>
-</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在配置的基础上操作本地库以及远程库的指令汇总如下：<br><code>git init</code> //初始空仓库时才需要<br><code>git add .</code>  // .表示添加当前的全部文件<br><code>git commit  -m  &quot;提交信息&quot;</code>  //“提交信息”里面换成你需要，如“first commit”<br><code>git push origin master</code><br>其他的git指令可以参考<a href="https://www.cnblogs.com/my--sunshine/p/7093412.html" target="_blank" rel="noopener">https://www.cnblogs.com/my–sunshine/p/7093412.html</a></p>
 
         
             <div class="donate-container">
