@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="logan的博客">
+    <meta name="keyword"  content="logan">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        LDAP的基础入门 - logan的博客
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Life is too short to be ordinary </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>logan_wz</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LDAP简称含义"><span class="toc-text">LDAP简称含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一条记录的位置"><span class="toc-text">一条记录的位置</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Life is too short to be ordinary </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        LDAP的基础入门
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-12-18 14:56:19</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#LDAP" title="LDAP">LDAP</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>LADP(Lightweight Directory Access Protocol)是轻型目录访问协议，是一个开放的，中立的，工业标准的应用协议，通过IP协议提供访问控制和维护分布式信息的目录信息。</p>
+</blockquote>
+<p>目录是一个为查询、浏览和搜索而优化的数据库，它成树状结构组织数据，类似文件目录一样。<br>目录数据库写性能差，没有事务处理、回滚等功能，不适合数据的频繁修改，但由于读性能高，适合用来查询。<br><code>LDAP目录服务是由目录数据库和一套访问协议组成的系统</code></p>
+<p>目录树：在一个目录服务系统中，整个目录信息集可以表示为一个目录信息树，树中的每个节点是一个条目<br>条目：每个条目就是一条记录，每个条目有自己的唯一可区别的名称（DN）<br>对象类：与某个实体类型对应的一组属性，对象类是可以继承的，这样父类的必须属性也会被继承下来<br>属性：描述条目的某个方面的信息，一个属性由一个属性类型和一个或多个属性值组成，属性有必须属性和非必须属性</p>
+<h2 id="LDAP简称含义"><a href="#LDAP简称含义" class="headerlink" title="LDAP简称含义"></a>LDAP简称含义</h2><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>全称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uid</td>
+<td>User Id</td>
+<td>用户ID songtao.xu（一条记录的ID）</td>
+</tr>
+<tr>
+<td>c</td>
+<td>Country Name</td>
+<td>国家</td>
+</tr>
+<tr>
+<td>dc</td>
+<td>Domain Component</td>
+<td>域名的部分，其格式是将完整的域名分成几部分，如域名为example.com变成dc=example,dc=com（一条记录的所属位置）</td>
+</tr>
+<tr>
+<td>o</td>
+<td>Organization</td>
+<td>组织</td>
+</tr>
+<tr>
+<td>ou</td>
+<td>Organization Unit</td>
+<td>组织单位，组织单位可以包含其他各种对象（包括其他组织单元），如“a组”（一条记录的所属组织）</td>
+</tr>
+<tr>
+<td>cn</td>
+<td>Common Name</td>
+<td>公共名称，如“Logan”（一条记录的名称）</td>
+</tr>
+<tr>
+<td>sn</td>
+<td>Surname</td>
+<td>真实名称</td>
+</tr>
+<tr>
+<td>dn</td>
+<td>Distinguished Name</td>
+<td>“uid=songtao.xu,ou=oa组,dc=example,dc=com”，一条记录的位置（唯一）</td>
+</tr>
+<tr>
+<td>rdn</td>
+<td>Relative dn</td>
+<td>相对辨别名，类似于文件系统中的相对路径，它是与目录树结构无关的部分，如“uid=tom”或“cn=Logan”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="一条记录的位置"><a href="#一条记录的位置" class="headerlink" title="一条记录的位置"></a>一条记录的位置</h2><p><code>uid=wz,dc=example,dc=cn</code><br>表示example.com下唯一的用户wz</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/wx.jpg">
+        <p> 感谢鼓励(wechat) </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="#">©2018 — 2019</a></span>
+        <span>/</span>
+        
+        <span><a href="http://loganwz.com">logan&#39;s Page</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC8zODU2My8xNTA5MQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
