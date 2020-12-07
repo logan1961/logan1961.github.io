@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="logan的博客">
+    <meta name="keyword"  content="logan">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        XML文件的读取 - logan的博客
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Life is too short to be ordinary </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>logan_wz</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML文件介绍"><span class="toc-text">XML文件介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XML文件主要有以下几个元素："><span class="toc-text">XML文件主要有以下几个元素：</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Life is too short to be ordinary </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        XML文件的读取
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-03-06 10:10:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Java" title="Java">Java</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h2 id="XML文件介绍"><a href="#XML文件介绍" class="headerlink" title="XML文件介绍"></a>XML文件介绍</h2><p>XML是指可扩展标记语言（EXtensible Markup Language），主要用来互联网数据传输，可以跨平台，不收任何编程语言和操作系统的限制。XML旨在传输数据，HTML旨在展示数据。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>Don't forget the meeting!<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>以上为XML实例，第一行为XML声明，定义了XML的版本为（1.0）和所用编码为（utf-8）</p>
+<h3 id="XML文件主要有以下几个元素："><a href="#XML文件主要有以下几个元素：" class="headerlink" title="XML文件主要有以下几个元素："></a>XML文件主要有以下几个元素：</h3><p><strong>根元素：</strong><br>实例第二行，在xml文件中唯一，开始放在最前面，结尾放在最后面<br><strong>子元素：</strong><br>实例第三行，所有子元素必须有结束标签</p>
+<blockquote>
+<p>子元素的命名规则：</p>
+<ul>
+<li>标签对大小写敏感,名称中可以包含字母、数字或者其他的字符</li>
+<li>名称不能以数字或者标点符号开始</li>
+<li>名称中不能包含空格</li>
+</ul>
+</blockquote>
+<p>获取XML内容<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.dom4j.Document;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.DocumentException;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.<span class="built_in">Element</span>;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Node;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">Iterator</span>;</span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">List</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> * Created by LLLLogan on 2019/3/6.</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> */</span></span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span> []args) throws DocumentException&#123;</span><br><span class="line">        SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">        Document <span class="built_in">document</span> = reader.read(<span class="keyword">new</span> File(<span class="string">"src/xmlfile/test.xml"</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取文档根节点</span></span><br><span class="line">        <span class="built_in">Element</span> root = <span class="built_in">document</span>.getRootElement();</span><br><span class="line">        <span class="comment">//输出根节点的名称</span></span><br><span class="line">        System.out.println(root.getName());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取根节点下面的所有子节点（不含子节点下的子节点）</span></span><br><span class="line">        <span class="built_in">List</span>&lt;<span class="built_in">Element</span>&gt; list = root.elements();</span><br><span class="line">        <span class="comment">//遍历list方法</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">Element</span> e:list)&#123;</span><br><span class="line">            System.out.<span class="built_in">print</span>(e.getName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获得指定节点下面的子节点</span></span><br><span class="line">        <span class="built_in">Element</span> contactElem = root.element(<span class="string">"contact"</span>);<span class="comment">//首先要知道自己要操作的节点。</span></span><br><span class="line">        <span class="built_in">List</span>&lt;<span class="built_in">Element</span>&gt; contactList = contactElem.elements();</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">Element</span> e:contactList)&#123;</span><br><span class="line">            System.out.println(e.getName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用获取子节点的递归函数</span></span><br><span class="line">        <span class="comment">//getChild</span></span><br><span class="line">        getChildNodes(root);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获得当前标签下指定名称的节点</span></span><br><span class="line">        <span class="built_in">Element</span> conEle = root.element(<span class="string">"contact"</span>);</span><br><span class="line">        System.out.println(conEle);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获得更深层次的标签（一层一层查询）</span></span><br><span class="line">        <span class="built_in">Element</span> aaa = root.element(<span class="string">"contact"</span>).element(<span class="string">"name"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="keyword">static</span> <span class="keyword">void</span> getChildNodes(<span class="built_in">Element</span> element)&#123;</span><br><span class="line">        System.out.println(element.getName());</span><br><span class="line">        <span class="built_in">Iterator</span>&lt;Node&gt; iterator = element.nodeIterator();</span><br><span class="line">        <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">            Node node = iterator.next();</span><br><span class="line">            <span class="keyword">if</span> (node instanceof <span class="built_in">Element</span>)&#123;</span><br><span class="line">                <span class="built_in">Element</span> e1 = (<span class="built_in">Element</span>)node;</span><br><span class="line">                getChildNodes(e1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/wx.jpg">
+        <p> 感谢鼓励(wechat) </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="#">©2018 — 2019</a></span>
+        <span>/</span>
+        
+        <span><a href="http://loganwz.com">logan&#39;s Page</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            访问次数<span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            访问人数<span id="busuanzi_value_site_uv"></span>
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC8zODU2My8xNTA5MQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
